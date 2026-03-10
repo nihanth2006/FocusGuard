@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "FocusGuard",
+  "version": "1.0",
+  "description": "Stay focused on your study tab and never get distracted",
+  "permissions": ["tabs", "activeTab"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
